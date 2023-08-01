@@ -7,6 +7,15 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
+# This .gitignore file should be placed at the root of your Unity project directory
+#
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
@@ -70,9 +79,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-CatEscape/.vsconfig
-CatEscape/Library/AnnotationManager
 CatEscape/Library/
 CatEscape/Logs/
+CatEscape/.vsconfig
 CatEscape/Temp/
-CatEscape/UserSettings/EditorUserSettings.asset
+CatEscape/UserSettings/
+CatEscape/obj/
