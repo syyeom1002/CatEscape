@@ -24,26 +24,28 @@ public class ArrowController : MonoBehaviour
         CatController catController = this.catGo.GetComponent<CatController>();
         var sumradius = this.radius + catController.radius;
 
-        // 두 원사이의 거리가 두 원의 반지름의 합보다 크면 false (부딪히지 않았다)
+        
         return dis < sumradius;
     }
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(Time.deltaTime);
-        // this.gameObject.transform.Translate(0, -1, 0);
-        //시간기반 이동
-        //속도 방향 시간
-        //1f*new Vector3(0,-1,0)*Time.deltaTime
+        
         this.transform.Translate(this.speed * Vector3.down * Time.deltaTime);
 
         if (this.transform.position.y <= -4.08)
         {
             Destroy(this.gameObject);
+            GameObject gameDirectorGo = GameObject.Find("GameDirector");
+            GameDirector gameDirector = gameDirectorGo.GetComponent<GameDirector>();
+            
         }
         if (this.isCollide())
         {
             Debug.Log("충돌");
+            GameObject gameDirectorGo = GameObject.Find("GameDirector");
+            GameDirector gameDirector = gameDirectorGo.GetComponent<GameDirector>();
+            gameDirector.DecreasHp();
             Destroy(this.gameObject);
         }
         else
@@ -53,10 +55,10 @@ public class ArrowController : MonoBehaviour
     }
     public float radius = 1;
     //이벤트 함수 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos()// 원 생김
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, this.radius);
+        Gizmos.DrawWireSphere(this.transform.position, this.radius); // this.transform.position은 원의 중점
     }
 
 }
